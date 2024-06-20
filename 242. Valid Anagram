@@ -1,0 +1,28 @@
+Approach 1: Sort and Compare
+
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if sorted(s) == sorted(t):
+            return True
+        else:
+            return False
+
+
+Approach 2 (faster): Hashmap
+
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        hashmap=defaultdict(int)
+        
+        for i in s:
+            hashmap[i] += 1
+        for i in t:
+            hashmap[i] -= 1
+
+        for i in hashmap.values():
+            if i != 0:
+                return False
+        
+        return True
+
+        
